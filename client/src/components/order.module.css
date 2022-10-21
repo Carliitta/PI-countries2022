@@ -1,0 +1,22 @@
+.containerFilters{
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: rgba(8, 8, 8, 0.856);
+    
+}
+.filterAndOrder{
+    background-color:rgba(245, 245, 245, 0.897);
+    color: red;
+    border-radius: 5px;
+    margin-right: 2px;
+}
+.filterAndOrder:hover{
+  cursor: pointer;
+  background-color: blue;
+  color: aliceblue;
+}
+.title{
+  color :#fff;
+  padding-right: 3px;
+}

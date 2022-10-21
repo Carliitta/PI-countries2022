@@ -1,0 +1,65 @@
+.containerNav{
+  background-color: rgba(8, 8, 8, 0.856);
+  height: 60px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+
+  } 
+  
+  .input{
+     height: 30px;
+     width: 200px;
+     border-radius: 10px;
+     border: #721717;
+     background-color:  #eaf8f5de;
+   
+  }
+  ::placeholder{
+   padding-left: 4px;
+  }
+ 
+  .inputButton{
+  background-color:  #eaf8f5de;
+  border-radius: 8px;
+  width: 80px;
+  height: 30px;
+  margin-left: 5px;
+  color: #f34545;
+  }
+  .inputButton:hover{
+   background-color: rgba(78, 20, 185, 0.925);
+   color: #fff;
+   cursor: pointer;
+  }
+  .form{
+   display: flex;
+   
+  }
+  footer{
+   color: rgb(157, 157, 184);
+   position:fixed;
+   text-align: center;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   
+  }
+  .links{
+   margin-left: 40%;
+  
+  }
+  .link{
+   text-decoration: red overline;
+   font-size: large;
+   color: #fff; 
+   margin-left: 20px;
+  }
+  .linkhome{
+ justify-content: left;
+ margin-right: 20px;
+ text-decoration: none;
+ font-size: 40px;
+ color: #fff; ;
+  }

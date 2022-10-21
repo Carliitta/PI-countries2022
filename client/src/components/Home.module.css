@@ -1,0 +1,62 @@
+*{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.grid{
+
+  display:grid;
+  grid-template-columns: repeat(auto-fill, 230px);
+  gap: 40px; /* para separar entre las imagenes  */
+  padding: 20px;
+  justify-content: center; 
+
+}
+.link{
+  text-decoration: none;
+}
+.container{
+  background: url("../img/peakpx.jpg");
+  background-size:cover;
+  background-position: 80px;
+  min-height: 635px;
+  overflow: hidden;
+}
+
+/* loading */
+.loadingDiv{
+  margin: 0;
+  background: url("../img/peakpx.jpg");
+  background-size:cover;
+  background-position: 80px;
+  min-height: 800px;
+  display: block;
+  padding: 20px;
+}
+.loadingp{
+ 
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 17px;
+  color: rgb(245, 241, 241);
+  padding: 5px;
+ 
+}
+
+.spinner {
+  margin-left: 49%;
+  border: 4px solid rgba(0, 0, 0, 0.349);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: rgb(246, 249, 252);
+  animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

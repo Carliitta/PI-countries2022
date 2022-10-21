@@ -1,0 +1,87 @@
+
+:root {
+  --color:rgba(255, 255, 255, 0.842);
+}
+*{
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  background: radial-gradient(#6c7481,#474f5c ,#2d3138);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.world {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: url("../img/4299.jpg");
+  background-size: cover;
+  box-shadow: inset 0 0 20px #000,
+              inset -40px -10px 20px rgba(3, 32, 56, 0.7);
+  animation: world 8s linear infinite;
+}
+
+@keyframes world {
+  0% {
+      background-position-x: 0;
+  }
+
+  100% {
+      background-position-x: -800px;
+  }
+}
+
+h1{
+  width: 100%;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color : var(--color);
+  font-size: 70px;
+  text-align: center;
+  text-shadow:  0.1em 0.1em 0.04em rgb(15, 14, 29);
+  
+  animation: moverDerecha 1s ease-in;
+}
+
+  @keyframes moverDerecha{
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+}
+
+.btnHome{
+  
+  background: none;
+  font-size: 20px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color :rgb(250, 249, 249);
+  
+  position: absolute;
+  bottom: 20px;
+  left: 40%;
+  right: 40%;
+  padding: 10px;
+  overflow: hidden;
+  border: 3px solid var(--color);
+  border-radius: 3px;
+  animation: moverArriba 1s ease-in;
+}
+.btnHome:hover{
+  color: black;
+  background: var(--color);
+  cursor: pointer;
+}
+  
+@keyframes moverArriba{
+  0%{
+      opacity: 0;
+      transform: translateY(100px);
+  }
+}
