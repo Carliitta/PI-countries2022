@@ -22,14 +22,14 @@ padding: 2rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1.5rem 2rem 0;
+    padding: 20px;
  
 }
 
 .input[type=text], [type=number] {
-  width: 250px;
+   width: 250px;
 height: .5rem;
-margin: .5rem 0;
+margin: .7rem 0;
 padding: 1rem;
 transition: all .7s;
 }
@@ -53,11 +53,12 @@ border-radius: 5px;
 width: 100px;
 height: 30px;
 margin-left: 5px;
-color: #f34545;
+color:  rgb(231, 13, 24);
 padding: .5px;
 margin: .5rem 0 .3rem;
 border-radius: 10px;
 border: none;
+font-weight: bold; 
 }
 
 .btn__submit:hover {
@@ -74,7 +75,7 @@ border: none;
   width: 250px;
   height: 30px;
   border-radius: 20px;
-  margin: 7px;
+  margin: 10px;
   color: #cf4747;
   background-color: #eaf8f5bb; 
   border-color: #721717;
@@ -100,10 +101,17 @@ border: none;
 }
 .radio{
   width: 250px;
+  margin-bottom: 8px;
 }
 .label{
+  margin-top: 8px;
   color: white;
   font-size: 20px;
  text-decoration: red overline;
 }
 
+.err{
+  color:rgb(231, 13, 24);
+  font-family: monospace;
+  font-size: 12px;
+}

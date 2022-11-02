@@ -3,7 +3,7 @@ const initialState={
   countries:[],
   detail:[],
   activities:[],
- countriesFilt:[]
+  countriesFilt:[]
 
 }
 export default function rootReducer(state = initialState, action) {
@@ -16,11 +16,11 @@ export default function rootReducer(state = initialState, action) {
     }
 
     case TYPES.SEARCH_COUNTRIES:
-    return{
-    ...state,
-    countries: action.payload
-    }
-
+        return{
+        ...state,
+        countriesFilt: action.payload
+        }
+     
     case TYPES.SEARCH_COUNTRIES_DETAIL:
       return{
       ...state,
@@ -108,8 +108,9 @@ export default function rootReducer(state = initialState, action) {
        case TYPES.ORDER_BY_ACTIVITIES:
       
        return {
-           ...state,  //filtro los paises    retorno donde el nombre sea igual al payload 
-           countriesFilt:state.countries.filter((c) => { return c.activities.find((c) => { return c.name === action.payload})})
+           ...state,  //filtro los paises   
+           countriesFilt:state.countries.filter((c) => 
+           { return c.activities.find((c) => { return c.name === action.payload})})// retorno donde el nombre sea igual al payload 
        }
     default:
     return state;

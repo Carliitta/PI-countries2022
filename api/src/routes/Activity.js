@@ -10,14 +10,10 @@ router.post('/', async (req, res) => {
         difficulty,
         duration,
         season,
-     
     })
     if(idCountry){
         createActivity.addCountries(idCountry)
-      
-       }
-
-       
+    }
     res.status(200).send(createActivity)
 
 })

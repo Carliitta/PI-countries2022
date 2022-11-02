@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import s from "./Home.module.css"
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import Search from "./Search"
 import { useDispatch, useSelector } from 'react-redux'
 import {getActivities, getAllCountries,Sort} from "../actions/"
@@ -13,6 +13,7 @@ import Order from './Order';
 export default function Home(){
      const countries = useSelector((state) => state.countriesFilt)
      const dispatch = useDispatch()
+     const history= useHistory()
     //*paginado//
      const [pag,setPag] = useState(1)
      const [postPag] = useState(10)
@@ -28,7 +29,7 @@ export default function Home(){
     //*fin*//
 
   useEffect(() => {
-   dispatch(getAllCountries())
+   dispatch(getAllCountries()) 
    dispatch(getActivities())
   }, [])
   
@@ -40,6 +41,7 @@ export default function Home(){
       <p className={s.loadingp}>Loading...</p>
     </div>
   )
+
  return (
   <div  >
     <div>
@@ -52,10 +54,11 @@ export default function Home(){
         paginado={paginado}
       />
 
+
     <div className={s.container}>
      <div className={s.grid}>
         {currentCountry.map(c=>(
-         <Link key={c.id} className={s.link} to={"/" + c.id}>
+         <Link key={c.id}  className={s.link} to={"/" + c.id}>
             <Card 
             name={ c.name}
             flag={ c.flag}

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import { CountriesDetail} from "../actions"
 import s from "./detail.module.css"
 import Search from "./Search"
+
 export default function CountryDetail() {
   const detail = useSelector((state)=> state.detail)
 
@@ -15,14 +16,14 @@ export default function CountryDetail() {
     dispatch(CountriesDetail(id))
     
   },[])
-  console.log(detail)
+ 
 
   if(detail.length===0)
   return(
     <div className={s.loadingDiv}>
 
       <p className={s.spinner}></p>
-      <p className={s.loadingp}>Loading...</p>
+      <p className={s.loading}>Loading...</p>
     </div>
   )
 
@@ -52,8 +53,8 @@ export default function CountryDetail() {
               <div className={s.actcontainer}>
               
                 <h5><b>Activity:</b> {e.name}</h5>
-                <h5><b>Difficulty:</b> {e.difficulty}</h5>
-                <h5><b>Duration:</b> {e.duration}</h5>
+                <h5><b>Difficulty:</b> Lebel {e.difficulty}</h5>
+                <h5><b>Duration:</b> {e.duration}  Hours</h5>
                 <h5><b>Season:</b> {e.season}</h5>   
               </div>
               )
