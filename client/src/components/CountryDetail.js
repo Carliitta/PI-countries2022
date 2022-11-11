@@ -48,9 +48,9 @@ export default function CountryDetail() {
           
               </div>   <h3 className={s.titAct}>Activities:</h3>
             {detail.activities.length?
-             detail.activities.map(e=>{
+             detail.activities.map((e,i)=>{
               return (
-              <div className={s.actcontainer}>
+              <div  key={i} className={s.actcontainer}>
               
                 <h5><b>Activity:</b> {e.name}</h5>
                 <h5><b>Difficulty:</b> Lebel {e.difficulty}</h5>

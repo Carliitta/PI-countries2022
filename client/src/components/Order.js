@@ -74,8 +74,7 @@ function orderAZ(e){
         <select className={s.filterAndOrder}
           onChange={ 
           orderActivities
-          }
-        >
+          } >
           
           <option>Activities</option>
           {

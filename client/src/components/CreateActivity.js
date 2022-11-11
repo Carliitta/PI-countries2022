@@ -40,14 +40,14 @@ import Activities from "./Activities";
 
 //* validaciones : ///////////////////////////////////////////////
  const validate = (input) => {
-/*   let errors = {};
+  let errors = {};
  if(!input.name.length)   errors.name = "name is required"
  if(!input.duration.length)  errors.duration =  "duration is required"
  if(!input.difficulty.length)  errors.difficulty ="difficulty is required"
  if(!input.season.length)  errors.season = "season is required"
  if(!input.idCountry.length)  errors.idCountry= "country is required"
  return errors
- */
+
  }
    
 
@@ -61,10 +61,11 @@ import Activities from "./Activities";
   
   function onSubmit(e) {
       e.preventDefault();
+
      if (!Object.keys(errors).length) { //verifica si hay propiedades en el estado de error
        dispatch(postActivity(input)) //creamos la actividad 
        alert("Activity created successfully!")
-       setInput({ name: "", duration: "", difficulty: "", season: "" ,  idCountry:[""]}); //reseateamos loas casillas 
+       setInput({ name: "", duration: "", difficulty: "", season: "" ,  idCountry:[]}); //reseateamos loas casillas 
      
        history.push('/home') //redirigir 
       
@@ -121,6 +122,23 @@ import Activities from "./Activities";
         <input className={s.radio}type="range" name="difficulty" min="1" max="5"  value={input.difficulty}onChange={onChange} ></input>
         {errors.difficulty && <p className={s.err}> {errors.difficulty}</p>}
     
+        <select   className={s.select} onChange={(e) => handleSelect(e)}>
+          <option >{"Select a contry-->"}</option>
+          {countries.map((c,i) => (
+                  <option  key={i} value={c.id}>{c.name}</option>
+                ))}
+
+          </select>
+        
+          <div className={s.textArea}>
+              {input.idCountry.map((country,i) => (
+                <div key={i} >
+                  <input  className='btnDelete' type='button' value='X' onClick={() => handleDelete(country)}/> 
+                  <p  >{country}</p>
+                </div>
+              ))}
+            </div>   
+            {errors.idCountry &&  <p className={s.err}> {errors.idCountry}</p>}
           <select className={s.select}  name="season" value={input.season} onChange={onChange}> 
             <option className={s.op} >{"select a season -->"}</option>
             <option value="Summer">Summer</option>
@@ -129,23 +147,7 @@ import Activities from "./Activities";
             <option value="Spring">Spring</option>
           </select>
           {errors.season && <p className={s.err}> {errors.season}</p>}
-          <select   className={s.select} onChange={(e) => handleSelect(e)}>
-          <option>{"Select a contry-->"}</option>
-          {countries.map((v) => (
-                  <option  key={v.id} value={v.id}>{v.name}</option>
-                ))}
-
-          </select>
         
-          <div className={s.textArea}>
-              {input.idCountry.map((country) => (
-                <div >
-                  <input className='btnDelete' type='button' value='X' onClick={() => handleDelete(country)}/> 
-                  <p  >{country}</p>
-                </div>
-              ))}
-            </div>   
-            {errors.idCountry &&  <p className={s.err}> {errors.idCountry}</p>}
         <button className={s.btn__submit} type="submit"> Create activity</button>
       </form>
     </div>

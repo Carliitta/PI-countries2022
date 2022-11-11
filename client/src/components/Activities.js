@@ -19,8 +19,8 @@ export default function Activities() {
   return (
     <div className={s.activityListContainer}>
     <h3 className={s.title}>List Activities:</h3>
-    {activities.map(act=> (
-      <div className={s.list} key={act.id}>
+    {activities.map((act,i)=> (
+      <div className={s.list} key={i}>
       <p className={s.p}>ActivityName: {act.name}</p>
       <p  className={s.p}>Season:  {act.season}</p>
       <p  className={s.p}>Duration: {act.duration} </p> 
