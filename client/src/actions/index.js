@@ -28,7 +28,7 @@ export function getAllCountries(){
     fetch('http://localhost:3001/countries')
     .then(respuesta=>respuesta.json())
     .then(data=> {
-      console.log(data)
+   /*    console.log(data) */
       dispatch({
             type: TYPES.GET_COUNTRIES,
             payload: data,
@@ -122,3 +122,12 @@ export function getActivities() {
     })
   }
 }
+/* export const getAct =()=>{
+return async function(dispatch){
+  const datos= await axios.get('http://localhost:3001/activities')
+  return dispatch({
+    type:TYPES.GET_ACTIVITIES,
+    payload:datos.data
+  })
+}
+} */

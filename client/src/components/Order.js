@@ -6,8 +6,10 @@ import s from "./order.module.css"
 import Paginado from "./Paginado";
 
 import {getAllCountries, orderByContinent, Sort, orderByPopulation, orderByActivities} from "../actions"
+
 export default function Order() {
 const activity= useSelector(state=> state.activities)
+const countries= useSelector(state=> state.countries)
  const dispatch = useDispatch()
  let history = useHistory ();
 
@@ -27,9 +29,13 @@ function orderAZ(e){
   dispatch(orderByActivities(e.target.value))
   history.push("/home") //para que actualice
  }
+
+
   return(
     <div >
+        
       <div className={s.containerFilters}>
+    
       <h3  className={s.title}>Filter for: </h3>
       <select className={s.filterAndOrder}
           onChange={ 
@@ -68,14 +74,15 @@ function orderAZ(e){
         <select className={s.filterAndOrder}
           onChange={ 
           orderActivities
-          }
-        >
+          } >
+          
           <option>Activities</option>
           {
             activity.map( e=> <option key={e.id} value={e.name}> {e.name }</option>)
           }
          
         </select>
+        <button className={s.reload}  onClick={() => window.location.reload()}></button>
       </div>
      
     </div>

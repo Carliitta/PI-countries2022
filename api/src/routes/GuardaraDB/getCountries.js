@@ -2,40 +2,30 @@ const { Country, Activity } = require('../../db.js');
 const axios = require('axios');
 
 async function getApiInfo() {
-    const apiUrl = await axios.get('https://restcountries.com/v3/all')
-    const apiInfo = await apiUrl.data.map((c) => {
-        return {
-            id: c.cca3,
-            name: c.name.common,
-            flag: c.flags[0],
-            continent: c.continents[0],
-            capital: c.capital,
-            subregion: c.subregion,
-            area: c.area,
-            population: c.population
+    try {
+        const dataBase= await Country.findAll()
+        if(!dataBase.length){
+            const apiInfo = await axios.get('https://restcountries.com/v3/all')
+        //bullCreate permite pasar un arreglo de objetos para que se almacenen en db
+            await Country.bulkCreate(apiInfo.data.map((c) => {
+                return {
+                    id: c.cca3,
+                    name: c.name.common,
+                    flag: c.flags[0],
+                    continent: c.continents[0],
+                    capital: c.capital,
+                    subregion: c.subregion,
+                    area: c.area,
+                    population: c.population
+                }
+            }))
         }
-    })
-    const guardar = () => {
-        apiInfo.map(i => {
-            Country.findOrCreate({
-                where: {
-                    name: i.name,
-                    id: i.id,
-                },
-                defaults: {
-                    continent: i.continent,
-                    flag: i.flag,
-                    capital: i.capital,
-                    subregion: i.subregion,
-                    area: i.area,
-                    population: i.population
-                },
-            }).catch((err) => { console.log(err) });
-        })
+        
+    } catch (error) {
+        console.log(error.message)
     }
-    guardar()
-    return apiInfo;
-};
+
+}
 
 const getDbInfo = async () => {
     await getApiInfo()
@@ -52,8 +42,8 @@ const getDbInfo = async () => {
 }
 
 const getActivities = async () => {
-    const get = await Activity.findAll()
-    return get;
+    const activities = await Activity.findAll()
+    return activities;
 }
 
 module.exports = { getDbInfo, getActivities };

@@ -20,3 +20,17 @@
   color :#fff;
   padding-right: 3px;
 }
+.reload{
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  background:url("../img/load.png");
+  background-size: 30px;
+  background-position: center;
+  border-radius: 90%;
+  border: none;
+}
+.reload:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}

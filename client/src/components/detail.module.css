@@ -18,7 +18,7 @@
   background-color: rgba(239, 246, 248, 0.637);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   width: 900px;
-  height: 550px;
+  height: 580px;
   text-align: left;
   display: inline-block;
   margin-top: 15px;
@@ -50,7 +50,7 @@ b{
   background: url("../img/peakpx.jpg");
   background-size:cover;
   background-position: 80px;
-  min-height: 765px;
+  min-height: 800px;
   display: block;
   padding: 20px;
 }
