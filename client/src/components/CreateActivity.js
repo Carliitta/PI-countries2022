@@ -127,7 +127,6 @@ import Activities from "./Activities";
           {countries.map((v) => (
                   <option  key={v.id} value={v.id}>{v.name}</option>
                 ))}
-
           </select>
           <p> {error.idCountry && error.idCountry}</p>
           <div className={s.textArea}>
