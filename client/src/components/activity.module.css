@@ -1,7 +1,7 @@
 .activityListContainer{
   background-color:transparent;
   width: 400px;
-  height: 570px;
+  height: 650px;
   border-radius: 50px;
   overflow-y:auto;
 
@@ -11,7 +11,7 @@
   font-size: 20px;
   padding: 10px;
   margin: 5px;
- 
+
 }
 .title{
   padding-top: 20px;

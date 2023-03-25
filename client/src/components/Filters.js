@@ -2,11 +2,11 @@ import { Dispatch,useEffect} from "react"
 import { useDispatch ,useSelector} from "react-redux"
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
-import s from "./order.module.css"
+import s from "./filters.module.css"
 import Paginado from "./Paginado";
 
 import {getAllCountries, orderByContinent, Sort, orderByPopulation, orderByActivities} from "../actions"
-export default function Order() {
+export default function Filters({setPagina}) {
 const activity= useSelector(state=> state.activities)
  const dispatch = useDispatch()
  let history = useHistory ();
@@ -14,18 +14,22 @@ const activity= useSelector(state=> state.activities)
 function orderAZ(e){
    dispatch(Sort(e.target.value))
    history.push("/home") //para que actualice
+   setPagina(1)
  }
  function orderContinent(e) {
   dispatch(orderByContinent(e.target.value))
   history.push("/home") //para que actualice
+  setPagina(1)
  }
  function orderPopulation(e) {
   dispatch(orderByPopulation(e.target.value))
   history.push("/home") //para que actualice
+  setPagina(1)
  }
  function orderActivities(e) {
   dispatch(orderByActivities(e.target.value))
   history.push("/home") //para que actualice
+  setPagina(1)
  }
   return(
     <div >
@@ -36,7 +40,7 @@ function orderAZ(e){
            orderAZ
           }
         >
-          <option>Alphabetical</option>
+          <option>A ⇵ Z</option>
           <option value="ASCENDENTE"> A-Z </option>
           <option value="DESCENDENTE"> Z-A </option>
         </select>
@@ -45,7 +49,7 @@ function orderAZ(e){
             orderContinent
           }
         >
-          <option>Continent</option>
+          <option hidden="true">Continent</option>
           <option value="All">All</option>
           <option value="North America">North America </option>
           <option value="South America"> South America</option>
@@ -61,7 +65,7 @@ function orderAZ(e){
           orderPopulation
           }
         >
-          <option>Population</option>
+          <option hidden="true">Population</option>
           <option value="MAX"> Less pop </option>
           <option value="MIN"> More pop </option>
         </select>
@@ -70,7 +74,7 @@ function orderAZ(e){
           orderActivities
           }
         >
-          <option>Activities</option>
+          <option hidden="true">Activities</option>
           {
             activity.map( e=> <option key={e.id} value={e.name}> {e.name }</option>)
           }

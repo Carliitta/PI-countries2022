@@ -9,10 +9,10 @@ export default  function LandingPage() {
    return (
     <div className={s.container}>
     <div className={s.world}>
+        <Link className={s.linkHome} to ='/home'>
         <h1 >Countries</h1> 
-        <Link to ='/home'>
-        <button className={s.btnHome}>Home</button>
         </Link>
+      
       </div>
 
     </div>

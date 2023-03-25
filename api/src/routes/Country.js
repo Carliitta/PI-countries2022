@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
         let countryName = await countriesTotal.filter(el => el.name.toLowerCase().includes(name.toLowerCase()))
         countryName.length ?
             res.status(200).send(countryName) :
-            res.status(404).send('No esta el Pais');
+            res.status(404).send('The country entered doesnt exist :c ');
     } else {
         res.status(200).send(countriesTotal);
     }

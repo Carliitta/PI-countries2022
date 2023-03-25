@@ -6,7 +6,7 @@ export default function Activities() {
   // const activities = useSelector((state) => state.activities);
    const [activity, setActivity]= useState([])
    const dispatch= useDispatch()
-   dispatch(getActivities())
+  // dispatch(getActivities())
 
   useEffect(() => {
   
@@ -22,7 +22,7 @@ export default function Activities() {
       <div className={s.list} key={act.id}>
       <p className={s.p}>  ActivityName: {act.name}</p>
       <p  className={s.p}> Season:  {act.season}</p>
-      <p  className={s.p}>Duration: {act.duration}</p>
+      <p  className={s.p}>Duration: {act.duration} </p>
       <p  className={s.p}>Difficulty: {act.difficulty}</p>
       {/* <p> country: {act.idCountry}</p> */}
       </div>

@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react"
 import { useDispatch ,useSelector} from "react-redux"
 import { useParams } from "react-router-dom"
-import { CountriesDetail} from "../actions"
+import { clearDetail, CountriesDetail} from "../actions"
 import s from "./detail.module.css"
+import flecha from "../img/volver.png"
 import Search from "./Search"
+import { Link } from "react-router-dom"
 export default function CountryDetail() {
   const detail = useSelector((state)=> state.detail)
 
@@ -12,7 +14,12 @@ export default function CountryDetail() {
   let dispatch= useDispatch()
   
   useEffect(() => {
+    
+    
     dispatch(CountriesDetail(id))
+    return ()=>{
+      dispatch(clearDetail())
+    }
     
   },[])
   console.log(detail)
@@ -31,7 +38,9 @@ export default function CountryDetail() {
  
     <div className={s.detail}>
       <div>
-        <Search/>
+      <Link to={"/home"}>
+        <img id={s.linkVolver}  src={flecha} alt="volver" />
+        </Link>
       </div>
          <div className={s.container}>
           
@@ -45,7 +54,8 @@ export default function CountryDetail() {
               <h5><b>Area:</b> {detail.area} km2</h5>
               <h5><b>Subregion:</b> {detail.subregion}</h5>
           
-              </div>   <h3 className={s.titAct}>Activities:</h3>
+              </div> 
+                <h3 className={s.titAct}>Activities:</h3>
             {detail.activities.length?
              detail.activities.map(e=>{
               return (
@@ -53,7 +63,7 @@ export default function CountryDetail() {
               
                 <h5><b>Activity:</b> {e.name}</h5>
                 <h5><b>Difficulty:</b> {e.difficulty}</h5>
-                <h5><b>Duration:</b> {e.duration}</h5>
+                <h5><b>Duration:</b> {e.duration} hs</h5>
                 <h5><b>Season:</b> {e.season}</h5>   
               </div>
               )

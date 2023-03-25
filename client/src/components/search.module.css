@@ -1,7 +1,8 @@
 .containerNav{
   background-color: rgba(8, 8, 8, 0.856);
   height: 60px;
-  padding: 20px;
+  padding-top: 30px;
+  padding-left: 20px;
   display: flex;
   align-items: center;
 
@@ -10,10 +11,11 @@
   .input{
      height: 30px;
      width: 200px;
+     font-size: 20px;
      border-radius: 10px;
      border: #721717;
      background-color:  #eaf8f5de;
-   
+
   }
   ::placeholder{
    padding-left: 4px;
@@ -22,9 +24,10 @@
   .inputButton{
   background-color:  #eaf8f5de;
   border-radius: 8px;
-  width: 80px;
+  width: 100px;
   height: 30px;
-  margin-left: 5px;
+  font-size: 18px;
+  margin-left: 2px;
   color: #f34545;
   }
   .inputButton:hover{
@@ -52,9 +55,10 @@
   }
   .link{
    text-decoration: red overline;
-   font-size: large;
+   font-size: 20px;
    color: #fff; 
-   margin-left: 20px;
+   text-align: right;
+   
   }
   .linkhome{
  justify-content: left;
@@ -62,4 +66,26 @@
  text-decoration: none;
  font-size: 40px;
  color: #fff; ;
+  }
+
+  @media (max-width: 600px) {
+  .containerNav{
+   display: block;
+   height: 150px;
+   align-items: center;
+   text-align: center;
+  }
+  .input{
+  margin-left: 10%;
+  width: 300px;
+  }
+  .links{
+   margin-top: 20px;
+   display: flex;
+   justify-content: left;
+   margin-left: 35%;
+  }
+  .link{
+  text-align: left;
+  }
   }

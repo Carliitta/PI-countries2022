@@ -18,13 +18,13 @@
   background-color: rgba(239, 246, 248, 0.637);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   width: 900px;
-  height: 550px;
+  height: 560px;
   text-align: left;
   display: inline-block;
-  margin-top: 15px;
+  margin-top: 20px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
   align-items: center;
-  margin-left: 270px;
+  margin-left: 23%;
   border-radius: 30px;
 }
 .name{
@@ -40,7 +40,12 @@ b{
   background: url("../img/peakpx.jpg");
   background-size:cover;
   background-position: 80px;
-  min-height: 760px;
+  min-height: 789px;
+}
+#linkVolver{
+  width: 70px;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 .titAct{
   font-size: 25px;
@@ -50,7 +55,7 @@ b{
   background: url("../img/peakpx.jpg");
   background-size:cover;
   background-position: 80px;
-  min-height: 765px;
+  min-height: 789px;
   display: block;
   padding: 20px;
 }
@@ -88,7 +93,11 @@ b{
   font-size: 20px;
   margin-top: 20px;
 }
-
+.titAct{
+  padding-top: 20px;
+  color: blue;
+  font-size: 30px;
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -98,3 +107,29 @@ b{
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 600px) {
+
+  .detail{
+    background: none;
+    background-color: rgb(88, 86, 86);
+   min-height:850px
+  }
+.container{
+margin-left: 12%;
+display: block;
+width: 400px;
+height: 500px;
+}
+.actcontainer{
+  padding-left: 40px;
+  padding-top: 5px;
+  height: 200px;
+  background-color: rgba(239, 246, 248, 0.637);
+  overflow: auto;
+}
+.titAct{
+  padding-left: 100px;
+ color: orangered;
+}
+  }

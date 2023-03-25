@@ -10,6 +10,7 @@ export const TYPES={
    ORDER_BY_ACTIVITIES:" ORDER_BY_ACTIVITIES",
    POST_ACTIVITIES:"POST_ACTIVITIES",
    GET_ACTIVITIES:"GET_ACTIVITIES",
+   CLEAR_DETAIL:"CLEAR_DETAIL"
 
 }
 
@@ -40,21 +41,24 @@ export function getAllCountries(){
 }
 
 export function searchCountries(search) {
-  return  function (dispatch) {
-      try {
-        fetch('http://localhost:3001/countries?name=' + search)
-        .then(response=>response.json())
-        .then(data=>{
-          dispatch({
-            type:TYPES.SEARCH_COUNTRIES,
-            payload:data
-          })
-        })
-      } catch (error) {
-          alert('El pais no fue encontrado')
-          console.log(error)
-      }
-  }
+  return async function(dispatch){
+    try {
+        var json = await axios.get(`http://localhost:3001/countries?name=`+search)
+        console.log(json.data)
+        if(typeof json.data === 'object'){ //pregunto si lo que viene es un ojeto? sino mando el error 
+            return dispatch({
+               type: TYPES.SEARCH_COUNTRIES,
+               payload: json.data
+            }) 
+        }else{
+          alert(json.data)//error del back
+        }
+       
+     } catch (error) {
+      alert(error.response.data)
+     
+     }
+ }
 }
 
 export function CountriesDetail(id) {
@@ -98,6 +102,14 @@ export  function orderByActivities(order) { //recive una forma de ordenar
    payload:order
   }
 };
+
+export  function clearDetail() { //recive una forma de ordenar
+  return{
+   type :TYPES.CLEAR_DETAIL ,
+   
+  }
+};
+
 
 
 

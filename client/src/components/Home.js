@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import {getActivities, getAllCountries,Sort} from "../actions/"
 import Card from './Card';
 import Paginado from './Paginado';
-import Order from './Order';
+import Filters from './Filters';
 
 
 export default function Home(){
@@ -43,11 +43,12 @@ export default function Home(){
  return (
   <div  >
     <div>
-    <Search/>
+    <Search  setPagina={setPag}/>
     </div>
-    <Order/>
+    <Filters setPagina={setPag}/>
     <Paginado
         postPag={postPag}
+        pagina={pag}
         countries={countries.length}
         paginado={paginado}
       />
@@ -67,7 +68,7 @@ export default function Home(){
      </div>
   
     </div>
-   <footer>By Rodriguez Carla</footer>
+  
   </div> 
  )
 }

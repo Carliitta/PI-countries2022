@@ -60,3 +60,17 @@
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 600px) {
+ .grid{
+  
+  grid-template-columns: repeat(auto-fill, 300px);
+  gap: 40px; /* para separar entre las imagenes  */
+ 
+ }
+.container{
+  background: none;
+  background-color: rgb(94, 92, 92);
+}
+
+}

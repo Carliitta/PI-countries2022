@@ -3,7 +3,7 @@ const initialState={
   countries:[],
   detail:[],
   activities:[],
- countriesFilt:[]
+  countriesFilt:[]
 
 }
 export default function rootReducer(state = initialState, action) {
@@ -18,8 +18,13 @@ export default function rootReducer(state = initialState, action) {
     case TYPES.SEARCH_COUNTRIES:
     return{
     ...state,
-    countries: action.payload
+    countriesFilt: action.payload
     }
+    case TYPES.CLEAR_DETAIL:
+      return{
+      ...state,
+      detail: []
+      }
 
     case TYPES.SEARCH_COUNTRIES_DETAIL:
       return{
