@@ -1,5 +1,5 @@
 import axios from "axios"
-
+import swal from 'sweetalert';
 export const TYPES={
    GET_COUNTRIES:"GET_COUNTRIES",
    SEARCH_COUNTRIES:"SEARCH_COUNTRIES",
@@ -31,19 +31,22 @@ export function searchCountries(search) {
   return async function(dispatch){
     try {
         var json = await axios.get(`/countries?name=`+search)
-        console.log(json.data)
-        if(typeof json.data === 'object'){ //pregunto si lo que viene es un ojeto? sino mando el error 
+       
             return dispatch({
                type: TYPES.SEARCH_COUNTRIES,
                payload: json.data
             }) 
-        }else{
-          alert(json.data)//error del back
-        }
+      
        
      } catch (error) {
-      alert(error.response.data)
      
+      swal({
+        title: "Message",
+        text: error.response.data,
+        icon: "error",
+        buttons: "Ok",
+      })
+    
      }
  }
 }

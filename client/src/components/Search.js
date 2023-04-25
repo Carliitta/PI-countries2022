@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Sort, { searchCountries } from "../actions";
 import CreateActivity from "./CreateActivity";
 import Filters from "./Filters";
+import swal from "sweetalert";
 
 export default function Search({ setPagina }) {
   const [search, setSearch] = useState("");
@@ -17,15 +18,14 @@ export default function Search({ setPagina }) {
     setSearch(e.target.value); //obtengo el valor ingresado
   }
   const handleSearch = () => {
-      setBuscando(true);
-      dispatch(searchCountries(search));
-      setPagina(1);
-      setTimeout(() => {
-         setBuscando(false);
-         setSearch("")
-       
-      }, 5000);
-  
+    setBuscando(true);
+    dispatch(searchCountries(search));
+
+    setPagina(1);
+    setTimeout(() => {
+      setBuscando(false);
+      setSearch("");
+    }, 1000);
   };
 
   return (
@@ -34,7 +34,7 @@ export default function Search({ setPagina }) {
         <Link className={s.linkhome} to="/">
           Countries
         </Link>
-      
+
         <div className={s.form}>
           <input
             className={s.input}
@@ -44,9 +44,8 @@ export default function Search({ setPagina }) {
             onChange={onInputChange}
           />
           <button className={s.inputButton} onClick={handleSearch}>
-          {buscando ? 'Searching...' : 'Search'}
+            {buscando ? "Searching..." : "Search"}
           </button>
-        
         </div>
         <div className={s.links}>
           <Link className={s.link} to="/createActivity">

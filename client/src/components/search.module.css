@@ -1,5 +1,5 @@
 .containerNav{
-  background-color: rgba(8, 8, 8, 0.856);
+  background-color: rgba(8, 8, 8, 0.923);
   height: 60px;
   padding-top: 30px;
   padding-left: 20px;
@@ -15,7 +15,7 @@
      border-radius: 10px;
      border: #721717;
      background-color:  #eaf8f5de;
-
+     padding-left: 10px;
   }
   ::placeholder{
    padding-left: 4px;
