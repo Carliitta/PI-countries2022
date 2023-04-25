@@ -15,29 +15,15 @@ export const TYPES={
 
 }
 
-// export function getAllCountries(){
-//   return async function(dispatch){
-//     var json = await axios.get('http://localhost:3001/countries')
-//     return dispatch({
-//         type: GET_COUNTRIES,
-//         payload: json.data
-
-//       })
-//   }
-// }
 export function getAllCountries(){
-  return function(dispatch){
-    fetch('/countries')
-    .then(respuesta=>respuesta.json())
-    .then(data=> {
-      console.log(data)
-      dispatch({
-            type: TYPES.GET_COUNTRIES,
-            payload: data,
-           
-    
-          })
-    })
+  return async function(dispatch){
+    var json = await axios.get('/countries')
+    console.log(json.data)
+    return dispatch({
+        type:TYPES.GET_COUNTRIES,
+        payload: json.data
+
+      })
   }
 }
 
@@ -65,12 +51,11 @@ export function searchCountries(search) {
 export function CountriesDetail(id) {
   return  function (dispatch) {
       try {
-        fetch('/countries/' + id)
-        .then(response=>response.json())
+        axios.get('/countries/' + id)
         .then(data=>{
           dispatch({
             type:TYPES.SEARCH_COUNTRIES_DETAIL,
-            payload:data
+            payload:data.data
           })
         })
       } catch (error) {
@@ -128,12 +113,11 @@ export function postActivity(payload) {
 
 export function getActivities() {
   return  function (dispatch) {
-    fetch('/activities')
-    .then(response=>response.json())
+    axios.get('/activities')
     .then(data=>{
         dispatch({
           type:TYPES.GET_ACTIVITIES,
-          payload: data
+          payload: data.data
       })
     })
   }

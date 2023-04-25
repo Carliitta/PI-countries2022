@@ -29,7 +29,7 @@ export default function Home(){
 
   useEffect(() => {
    dispatch(getAllCountries())
-   dispatch(getActivities())
+   //dispatch(getActivities())
   }, [])
   
   
