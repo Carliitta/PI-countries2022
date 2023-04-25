@@ -17,7 +17,7 @@ async function getApiInfo() {
     })
     return apiInfo;
 };
-const guardar =async () => {
+/* const guardar =async () => {
     const apiInfo =await getApiInfo()
     if(!Country.length){
         apiInfo.map(async(i) => {
@@ -36,11 +36,11 @@ const guardar =async () => {
     }else{
         return apiInfo
     }
-}
+} */
 
 
 const getDbInfo = async () => {
-    await guardar()
+    await getApiInfo()
     const aux = await Country.findAll({
         include: {
             model: Activity,
