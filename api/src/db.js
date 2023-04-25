@@ -14,6 +14,7 @@ const {
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 }); */
 const sequelize = new Sequelize(BD_DEPLOY, {
+  port:DB_PORT,
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
