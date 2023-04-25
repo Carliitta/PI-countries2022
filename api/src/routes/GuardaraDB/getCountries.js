@@ -15,30 +15,32 @@ async function getApiInfo() {
             population: c.population
         }
     })
-    const guardar = () => {
-        apiInfo.map(i => {
-            Country.findOrCreate({
-                where: {
+    return apiInfo;
+};
+const guardar =async () => {
+    const apiInfo =await getApiInfo()
+    if(!Country.length){
+        apiInfo.map(async(i) => {
+            await Country.bulkCreate({
                     name: i.name,
                     id: i.id,
-                },
-                defaults: {
                     continent: i.continent,
                     flag: i.flag,
                     capital: i.capital,
                     subregion: i.subregion,
                     area: i.area,
                     population: i.population
-                },
+            
             }).catch((err) => { console.log(err) });
         })
+    }else{
+        return apiInfo
     }
-    guardar()
-    return apiInfo;
-};
+}
+
 
 const getDbInfo = async () => {
-    await getApiInfo()
+    await guardar()
     const aux = await Country.findAll({
         include: {
             model: Activity,

@@ -12,7 +12,7 @@ export default function rootReducer(state = initialState, action) {
     return{
        ...state,
        countries: action.payload,
-      countriesFilt:action.payload
+       countriesFilt:action.payload
     }
 
     case TYPES.SEARCH_COUNTRIES:
@@ -116,6 +116,11 @@ export default function rootReducer(state = initialState, action) {
            ...state,  //filtro los paises    retorno donde el nombre sea igual al payload 
            countriesFilt:state.countries.filter((c) => { return c.activities.find((c) => { return c.name === action.payload})})
        }
+       case TYPES.CLEAR_FILTERS:
+        return{
+        ...state,
+        countriesFilt:state.countries
+        }
     default:
     return state;
   }

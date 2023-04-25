@@ -45,8 +45,9 @@ color:#EFEFEF;
 height: .7rem;
 font-size: 20px;
 margin: .5rem 0;
-padding: 1rem;
+padding: 1.1rem;
 transition: all .7s;
+margin-bottom: 15px;
 }
 
 .input[type=text], [type=number] {
@@ -77,7 +78,7 @@ font-size: 20px;
 }
 
 .btn__submit:hover {
-  background-color: rgb(29, 117, 117);
+  background-color: rgb(29, 36, 117);
   color: aliceblue;
   cursor: pointer;
 }
@@ -97,6 +98,7 @@ font-size: 20px;
   background-color: #eaf8f5bb; 
   border-color: #721717;
   font-size: 20px;
+  margin-bottom: 15px;
 
 }
 .select:hover{
@@ -119,6 +121,7 @@ font-size: 20px;
 }
 .radio{
   width: 300px;
+  margin-bottom: 15px;
 }
 .label{
   color: white;

@@ -11,13 +11,23 @@
   height: 30px;
   font-size: 18px;
 }
+.btnClear{
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  color: red;
+  margin-left: 20px;
+}
+
+
 .filterAndOrder{
     background-color:rgba(245, 245, 245, 0.897);
     color: red;
     border-radius: 5px;
     margin-right: 2px;
 }
-.filterAndOrder:hover{
+.filterAndOrder:hover ,.btnClear:hover{
   cursor: pointer;
   background-color: blue;
   color: aliceblue;

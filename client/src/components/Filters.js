@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import s from "./filters.module.css"
 import Paginado from "./Paginado";
 
-import {getAllCountries, orderByContinent, Sort, orderByPopulation, orderByActivities} from "../actions"
+import {getAllCountries, orderByContinent, Sort, orderByPopulation, orderByActivities, clearFilters} from "../actions"
 export default function Filters({setPagina}) {
 const activity= useSelector(state=> state.activities)
  const dispatch = useDispatch()
@@ -31,6 +31,10 @@ function orderAZ(e){
   history.push("/home") //para que actualice
   setPagina(1)
  }
+ function ClearFilters (){
+  dispatch(clearFilters())
+  setPagina(1)
+ }
   return(
     <div >
       <div className={s.containerFilters}>
@@ -40,7 +44,7 @@ function orderAZ(e){
            orderAZ
           }
         >
-          <option>A ⇵ Z</option>
+          <option hidden>A ⇵ Z</option>
           <option value="ASCENDENTE"> A-Z </option>
           <option value="DESCENDENTE"> Z-A </option>
         </select>
@@ -49,7 +53,7 @@ function orderAZ(e){
             orderContinent
           }
         >
-          <option hidden="true">Continent</option>
+          <option hidden>Continent</option>
           <option value="All">All</option>
           <option value="North America">North America </option>
           <option value="South America"> South America</option>
@@ -65,7 +69,7 @@ function orderAZ(e){
           orderPopulation
           }
         >
-          <option hidden="true">Population</option>
+          <option hidden>Population</option>
           <option value="MAX"> Less pop </option>
           <option value="MIN"> More pop </option>
         </select>
@@ -74,12 +78,13 @@ function orderAZ(e){
           orderActivities
           }
         >
-          <option hidden="true">Activities</option>
+          <option hidden>Activities</option>
           {
             activity.map( e=> <option key={e.id} value={e.name}> {e.name }</option>)
           }
          
         </select>
+      <button className={s.btnClear} onClick={ClearFilters}>Clear Filters</button>
       </div>
      
     </div>

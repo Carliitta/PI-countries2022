@@ -14,15 +14,13 @@ export default function CountryDetail() {
   let dispatch= useDispatch()
   
   useEffect(() => {
-    
-    
     dispatch(CountriesDetail(id))
     return ()=>{
       dispatch(clearDetail())
     }
     
   },[])
-  console.log(detail)
+
 
   if(detail.length===0)
   return(

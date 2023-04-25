@@ -87,7 +87,7 @@ import { Link } from "react-router-dom";
       setInput({ name: "", duration: "", difficulty: "", season: "" ,  idCountry:[]}); //reseateamos loas casillas 
     }
     //history.push('/home') //redirigir 
- 
+ console.log(activities);
   }
   function onChange(e) {
     setInput({
@@ -126,14 +126,14 @@ import { Link } from "react-router-dom";
       <form  className={s.form} onSubmit={onSubmit}>
     
         <input className={s.input} name="name" type="text" placeholder="Name activity.."  value={input.name} onChange={onChange}></input>
-        {error.name && <p style={{color:"red", fontWeight:"bold"}}>{error.name}</p>}
+        {error.name && <p style={{color:"orange",fontWeight:"bold" }}>{error.name}</p>}
         
         <input className={s.input} name="duration" type="number" min="1" pattern="^[0-9]+" placeholder="Duration in hours.."  value={input.duration} onChange={onChange}></input> 
-        {error.duration && <p style={{color:"red", fontWeight:"bold"}}>{error.duration}</p>}
+        {error.duration && <p style={{color:"orange",fontWeight:"bold" }}>{error.duration}</p>}
         
         <label className={s.label}>Difficulty:</label>
         <input className={s.radio}type="range" name="difficulty" min="1" max="5"  value={input.difficulty}onChange={onChange} ></input>
-        {error.difficulty && <p style={{color:"red", fontWeight:"bold"}}>{error.difficulty}</p>}
+        {error.difficulty && <p style={{color:"orange",fontWeight:"bold" }}>{error.difficulty}</p>}
     
           <select className={s.select}  name="season" value={input.season} onChange={onChange}> 
             <option className={s.op} >season</option>
@@ -142,7 +142,7 @@ import { Link } from "react-router-dom";
             <option value="Winter">Winter</option>
             <option value="Spring">Spring</option>
           </select>
-          {error.season && <p style={{color:"red", fontWeight:"bold"}}>{error.season}</p>}
+          {error.season && <p style={{color:"orange",fontWeight:"bold"}}>{error.season}</p>}
           <select   className={s.select} onChange={(e) => handleSelect(e)}>
           <option>county</option>
           {countries.map((v) => (
@@ -158,7 +158,7 @@ import { Link } from "react-router-dom";
                 </div>
               ))}
             </div> 
-         {/*    {error.idCountry && <p style={{color:"red", fontWeight:"bold"}}>{error.idCountry}</p>}  */} 
+         {/*    {error.idCountry && <p style={{color:"orange", fontWeight:"bold"}}>{error.idCountry}</p>}  */} 
         <button className={s.btn__submit} type="submit"> Create activity</button>
       </form>
     </div>

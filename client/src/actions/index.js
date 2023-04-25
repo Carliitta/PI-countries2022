@@ -10,7 +10,8 @@ export const TYPES={
    ORDER_BY_ACTIVITIES:" ORDER_BY_ACTIVITIES",
    POST_ACTIVITIES:"POST_ACTIVITIES",
    GET_ACTIVITIES:"GET_ACTIVITIES",
-   CLEAR_DETAIL:"CLEAR_DETAIL"
+   CLEAR_DETAIL:"CLEAR_DETAIL",
+   CLEAR_FILTERS:"CLEAR_FILTERS"
 
 }
 
@@ -103,15 +104,18 @@ export  function orderByActivities(order) { //recive una forma de ordenar
   }
 };
 
-export  function clearDetail() { //recive una forma de ordenar
+export  function clearDetail() { 
   return{
    type :TYPES.CLEAR_DETAIL ,
    
   }
 };
-
-
-
+export  function clearFilters() { 
+  return{
+   type :TYPES.CLEAR_FILTERS ,
+   
+  }
+};
 
 export function postActivity(payload) {
   return async function (dispatch) {
