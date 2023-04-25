@@ -27,7 +27,7 @@ export const TYPES={
 // }
 export function getAllCountries(){
   return function(dispatch){
-    fetch('http://localhost:3001/countries')
+    fetch('/countries')
     .then(respuesta=>respuesta.json())
     .then(data=> {
       console.log(data)
@@ -44,7 +44,7 @@ export function getAllCountries(){
 export function searchCountries(search) {
   return async function(dispatch){
     try {
-        var json = await axios.get(`http://localhost:3001/countries?name=`+search)
+        var json = await axios.get(`/countries?name=`+search)
         console.log(json.data)
         if(typeof json.data === 'object'){ //pregunto si lo que viene es un ojeto? sino mando el error 
             return dispatch({
@@ -65,7 +65,7 @@ export function searchCountries(search) {
 export function CountriesDetail(id) {
   return  function (dispatch) {
       try {
-        fetch('http://localhost:3001/countries/' + id)
+        fetch('/countries/' + id)
         .then(response=>response.json())
         .then(data=>{
           dispatch({
@@ -119,7 +119,7 @@ export  function clearFilters() {
 
 export function postActivity(payload) {
   return async function (dispatch) {
-      await axios.post('http://localhost:3001/activities', payload);
+      await axios.post('/activities', payload);
       return dispatch({
           type: TYPES.POST_ACTIVITIES,
       })
@@ -128,7 +128,7 @@ export function postActivity(payload) {
 
 export function getActivities() {
   return  function (dispatch) {
-    fetch('http://localhost:3001/activities')
+    fetch('/activities')
     .then(response=>response.json())
     .then(data=>{
         dispatch({
