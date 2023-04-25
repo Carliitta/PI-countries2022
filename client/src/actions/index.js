@@ -30,7 +30,7 @@ export function getAllCountries(){
     fetch('/countries')
     .then(respuesta=>respuesta.json())
     .then(data=> {
-      //console.log(data)
+      console.log(data)
       dispatch({
             type: TYPES.GET_COUNTRIES,
             payload: data,
