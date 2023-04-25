@@ -21,7 +21,7 @@ const guardar =async () => {
     const apiInfo =await getApiInfo()
     if(!Country.length){
         apiInfo.map(async(i) => {
-            await Country.bulkCreate({
+            await Country.create({
                     name: i.name,
                     id: i.id,
                     continent: i.continent,
