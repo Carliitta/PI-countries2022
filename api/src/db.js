@@ -13,7 +13,7 @@ const {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 }); */
-const sequelize = new Sequelize(BD_DEPLOY, {
+const sequelize = new Sequelize('https://api.render.com/deploy/srv-cm0etf0l5elc73eag930?key=txL2qG2Brrw', {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
