@@ -13,7 +13,7 @@ const {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 }); */
-const sequelize = new Sequelize('https://api.render.com/deploy/srv-cm0etf0l5elc73eag930?key=txL2qG2Brrw', {
+const sequelize = new Sequelize('postgres://countries_4s0h_user:OPNzk6U3V0ZCKRwBprMFFStuujGB79M8@dpg-cm0fgbgl5elc73eal94g-a.oregon-postgres.render.com/countries_4s0h', {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
